@@ -1,6 +1,6 @@
 # Nafza-Faroidh
 
-**Aplikasi Desktop untuk Penghitungan Faroidh**
+*Aplikasi Desktop untuk Penghitungan Faroidh atau Waris mewaris harta peninggalan menurut Ajaran Islam*
 
 ![Screenshot](/Info/Screenshot.png)
 
@@ -24,11 +24,11 @@ Project dipersembahkan oleh Muhammad AfzainizaM, dan dikelola oleh saya sendiri.
 
 ## Lisensi
 
-Project berlisensi (Apache License)[./LICENSE] . Selalu sertakan file lisensi dengan cacatan modifikasi (jika ada) jika anda ingin mengimplementasikan software ini kedalam project anda.
+Project berlisensi [Apache License](./LICENSE). Selalu sertakan file lisensi dengan cacatan modifikasi (jika ada) jika anda ingin mengimplementasikan software ini kedalam project anda.
 
 ## Kritik Saran
 
-Kritik saran dapat dikirim melalui email (Afzainizam)[nafza71@gmail.com] atau (saya sendiri)[wildanmubarok22@gmail.com] .
+Kritik saran dapat dikirim melalui email [Afzainizam](mailto:nafza71@gmail.com) atau [saya sendiri](mailto:wildanmubarok22@gmail.com).
 
 ## Kontribusi
 
@@ -36,4 +36,4 @@ Project telah dinyatakan selesai namun kontribusi bisa diatur melalui pull reque
 
 ## TL;DR
 
-# Sebarkan guys!
+# *Sebarkan guys!*
