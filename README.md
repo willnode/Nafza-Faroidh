@@ -24,9 +24,11 @@ Project dipersembahkan oleh Muhammad AfzainizaM, dan dikelola oleh saya sendiri.
 
 ## Lisensi
 
-Project berlisensi [Apache License](./LICENSE). Selalu sertakan file lisensi dengan cacatan modifikasi (jika ada) jika anda ingin mengimplementasikan software ini kedalam project anda.
+Project berlisensi [Apache License](./LICENSE). Selalu sertakan file lisensi dengan mencatat modifikasi (jika ada yang dirubah) saat anda ingin mengimplementasikan software ini kedalam project anda.
 
 Software telah diuji keakuratannya namun tidak mungkin 100% akurat. Tidak ada garansi bila ada salah penghitungan selama menggunakan software ini. Namun anda tentu sangat membantu kami jika anda bisa menemukan dan memberitahukan letak kesalahan kami melalui [tab issues](https://github.com/WelloSoft/Nafza-Faroidh/issues).
+
+Anda boleh membagikan software jadi kepada yang lain sepuas hati anda.
 
 ## Kritik Saran
 
