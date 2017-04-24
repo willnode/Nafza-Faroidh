@@ -14,7 +14,7 @@ Software telah diuji oleh hampir seluruh guru dan pembina PP. Denanyar Jombang y
 
 ## Instalasi
 
-[Download Versi Jadi](https://github.com/WelloSoft/Nafza-Faroidh/raw/master/Info/Kalkulasi Faroidh - Setup.exe)
+[Download Versi Jadi](https://github.com/WelloSoft/Nafza-Faroidh/raw/master/Info/Kalkulasi%20Faroidh%20-%20Setup.exe)
 [Download Project](https://github.com/WelloSoft/Nafza-Faroidh/archive/master.zip)
 
 ## Credit
@@ -23,11 +23,11 @@ Project dipersembahkan oleh Muhammad AfzainizaM, dan dikelola oleh saya sendiri.
 
 ## Lisensi
 
-Project berlisensi (Apache 2.0)[https://github.com/WelloSoft/Nafza-Faroidh/blob/master/LICENSE]. Selalu sertakan file lisensi dengan cacatan modifikasi (jika ada) jika anda ingin mengimplementasikan software ini kedalam project anda.
+Project berlisensi (Apache 2.0)[https://github.com/WelloSoft/Nafza-Faroidh/blob/master/LICENSE] . Selalu sertakan file lisensi dengan cacatan modifikasi (jika ada) jika anda ingin mengimplementasikan software ini kedalam project anda.
 
 ## Kritik Saran
 
-Kritik saran dapat dikirim melalui email (Afzainizam)[mailto:nafza71@gmail.com] atau (saya sendiri)[mailto:wildanmubarok22@gmail.com].
+Kritik saran dapat dikirim melalui email (Afzainizam)[nafza71@gmail.com] atau (saya sendiri)[wildanmubarok22@gmail.com].
 
 ## Kontribusi
 
