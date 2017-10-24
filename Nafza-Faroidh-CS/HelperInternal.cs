@@ -36,10 +36,10 @@ public partial class Helper
     /// <summary>
     /// 0 = cukup, 1 = lebih, 2 = kurang dari persediaan waris
     /// </summary>
-
     public static int Hasil_Cukup;
 
     public static bool ModelAulRodd;
+
     // Rekalikuasi: proses lengkap dari penentuan setiap anggota hasil
     //...................................................."proses penghitungan dimulai dari sini!!!"
     public static void Rekalkulasi()

@@ -265,7 +265,7 @@ partial class Form1 : System.Windows.Forms.Form
             this.Button1.Location = new System.Drawing.Point(212, 3);
             this.Button1.Name = "Button1";
             this.TableLayoutPanel1.SetRowSpan(this.Button1, 2);
-            this.Button1.Size = new System.Drawing.Size(74, 42);
+            this.Button1.Size = new System.Drawing.Size(73, 42);
             this.Button1.TabIndex = 11;
             this.Button1.Text = "Reset";
             this.Button1.UseVisualStyleBackColor = false;
@@ -285,10 +285,10 @@ partial class Form1 : System.Windows.Forms.Form
             this.Button2.BackColor = System.Drawing.Color.Black;
             this.Button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Button2.ForeColor = System.Drawing.Color.White;
-            this.Button2.Location = new System.Drawing.Point(384, 3);
+            this.Button2.Location = new System.Drawing.Point(383, 3);
             this.Button2.Name = "Button2";
             this.TableLayoutPanel1.SetRowSpan(this.Button2, 2);
-            this.Button2.Size = new System.Drawing.Size(87, 42);
+            this.Button2.Size = new System.Drawing.Size(88, 42);
             this.Button2.TabIndex = 10;
             this.Button2.Text = "About";
             this.Button2.UseVisualStyleBackColor = false;
@@ -347,7 +347,7 @@ partial class Form1 : System.Windows.Forms.Form
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.36842F));
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63158F));
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
-            this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.TableLayoutPanel1.Controls.Add(this.Button3, 2, 0);
             this.TableLayoutPanel1.Controls.Add(this._Total, 0, 1);
             this.TableLayoutPanel1.Controls.Add(this._Sisa, 0, 0);
@@ -368,7 +368,7 @@ partial class Form1 : System.Windows.Forms.Form
             this.Button3.BackColor = System.Drawing.Color.Black;
             this.Button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Button3.ForeColor = System.Drawing.Color.White;
-            this.Button3.Location = new System.Drawing.Point(292, 3);
+            this.Button3.Location = new System.Drawing.Point(291, 3);
             this.Button3.Name = "Button3";
             this.TableLayoutPanel1.SetRowSpan(this.Button3, 2);
             this.Button3.Size = new System.Drawing.Size(86, 42);
