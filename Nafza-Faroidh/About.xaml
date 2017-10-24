@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nafza_Faroidh"
         mc:Ignorable="d"
-        Title="About" Height="300" Width="400" ResizeMode="NoResize"  FontSize="15">
+        Title="About" Height="300" Width="400" ResizeMode="NoResize"  FontSize="15" Icon="pack://application:,,,/Resources/Rules.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -21,6 +21,9 @@ beberapa kesalahan didalamnya
 untuk segera memberi tahu kepada pengarang.
 Sekian terima kasih. 
         </TextBox>
+        <TextBlock Grid.Row="1" Margin="5" >
+           Versi 2.0 (24 Okt 2017)
+        </TextBlock>
         <TextBlock Grid.Row="2" Margin="5" >
            Email <Hyperlink NavigateUri="mailto:nafza71@gmail.com">nafza71@gmail.com</Hyperlink>
        </TextBlock>

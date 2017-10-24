@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nafza_Faroidh"
         mc:Ignorable="d"
-        Title="Nafza Faroidh" Height="450" Width="750" FontSize="15">
+        Title="Nafza Faroidh" Height="450" Width="750" FontSize="15" Icon="pack://application:,,,/Resources/Rules.ico">
     <Window.Resources>
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="Height" Value="36"/>

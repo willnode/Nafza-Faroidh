@@ -45,6 +45,7 @@ namespace Nafza_Faroidh
                     Kategori = item <= TipeAnggota.Istri ? "Keluarga" : "Saudara",
                 });
             }
+
             _tipe.ItemsSource = templates;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(_tipe.ItemsSource);
             view.GroupDescriptions.Add(new PropertyGroupDescription("Kategori"));
