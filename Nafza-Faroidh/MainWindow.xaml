@@ -5,54 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nafza_Faroidh"
         mc:Ignorable="d"
-        Title="Nafza Faroidh" Height="400" Width="750" FontSize="16">
+        Title="Nafza Faroidh" Height="450" Width="750" FontSize="15">
+    <Window.Resources>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Height" Value="36"/>
+        </Style>
+    </Window.Resources>
    
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="110"/>
             <RowDefinition />
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        
+
         <GridSplitter Grid.Column="1" Grid.RowSpan="3" Width="4" HorizontalAlignment="Stretch"/>
 
         <Image Grid.Column="2" Source="pack://application:,,,/Resources/Banner.png" Stretch="Fill" />
-        
+
         <StackPanel>
             <Label HorizontalContentAlignment="Center">Harta</Label>
-            <TextBox FontFamily="Consolas" FontSize="24" HorizontalContentAlignment="Center" Margin="0,4,0,4"/>
-            <ToggleButton Margin="0,4,0,4">Aul/Rodd</ToggleButton>
+            <TextBox x:Name="_harta" FontFamily="Consolas" FontSize="24" HorizontalContentAlignment="Center" Margin="0,4,0,4" TextChanged="_harta_TextChanged" />
+            <ToggleButton x:Name="_aulRodd" Margin="0,4,0,4" Checked="_aulRodd_Checked"  Unchecked="_aulRodd_Checked" IsEnabled="False"> - </ToggleButton>
         </StackPanel>
 
-        <ListView x:Name="_tipe" Grid.Row="1">
-                <ListView.GroupStyle>
-                    <GroupStyle >
-                        <GroupStyle.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="5"/>
-                            </DataTemplate>
-                        </GroupStyle.HeaderTemplate>
-                    </GroupStyle>
-                </ListView.GroupStyle>
-            </ListView>
+        <ListView x:Name="_tipe" Grid.Row="1" ForceCursor="True" SelectionMode="Single" MouseDoubleClick="_tipe_MouseDoubleClick">
+            <ListView.GroupStyle>
+                <GroupStyle >
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="5"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+        </ListView>
 
-        <ListView x:Name="_anggota" Grid.Column="2" Grid.Row="1">
+        <ListView x:Name="_anggota" Grid.Column="2" Grid.Row="1" MouseDoubleClick="_anggota_MouseDoubleClick" KeyUp="_anggota_KeyUp" KeyDown="_anggota_KeyDown">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="NAMA" DisplayMemberBinding="{Binding Nama}" Width="200"/>
-                    <GridViewColumn Header="STATUS" DisplayMemberBinding="{Binding Nama}" Width="100"/>
-                    <GridViewColumn Header="BAGIAN" DisplayMemberBinding="{Binding Nama}" Width="100"/>
-                    <GridViewColumn Header="JATAH" DisplayMemberBinding="{Binding Nama}" Width="100"/>
-                    <GridViewColumn Header="JATAH %" DisplayMemberBinding="{Binding Nama}" Width="100"/>
+                    <GridViewColumn Header="NAMA" DisplayMemberBinding="{Binding Nama}" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Nama}" Foreground="Red"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="STATUS" DisplayMemberBinding="{Binding Tipe}" Width="200"/>
+                    <GridViewColumn Header="BAGIAN" DisplayMemberBinding="{Binding HasilJatah}" Width="150"/>
+                    <GridViewColumn Header="JATAH" DisplayMemberBinding="{Binding HasilWaris}" Width="150"/>
+                    <GridViewColumn Header="JATAH %" DisplayMemberBinding="{Binding HasilWarisPersen}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        
+
         <Button x:Name="_add" Grid.Row="2" Click="_add_Click">Tambah >></Button>
         <Grid Grid.Column="2" Grid.Row="2">
             <Grid.ColumnDefinitions>

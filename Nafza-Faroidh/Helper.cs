@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Nafza_Faroidh
 {
@@ -392,6 +393,59 @@ namespace Nafza_Faroidh
                 return Jatah.A;
             }
         }
+
+
+        // -------------------------
+        public static bool VerifikasiAnggota(TipeAnggota kandidat)
+        {
+            LoadAdakah();
+            if ((kandidat == TipeAnggota.Bapak & adakah[TipeAnggota.Bapak] > 0))
+            {
+
+                MessageBox.Show("Gak mungkin, kawan,,!!!", "Mustahil", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if ((kandidat == TipeAnggota.Suami & adakah[TipeAnggota.Istri] > 0))
+            {
+                MessageBox.Show("terus siapa yang meniggal..???", "Mustahil", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if ((kandidat == TipeAnggota.Istri & adakah[TipeAnggota.Suami] > 0))
+            {
+                MessageBox.Show("terus siapa yang meniggal..???", "Mustahil", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if ((kandidat == TipeAnggota.Ibu & adakah[TipeAnggota.Ibu] > 0))
+            {
+                MessageBox.Show("cukup satu ibu kandung di Dunia ini,,,", "melanggar hukum alam", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if ((kandidat == TipeAnggota.Suami & adakah[TipeAnggota.Suami] > 0))
+            {
+                MessageBox.Show("Seorang istri tidak boleh memiliki 2 suami", "Melanggar syari'at", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if ((kandidat == TipeAnggota.Istri & adakah[TipeAnggota.Istri] > 3))
+            {
+                MessageBox.Show("4 istri cukup.. !!!, Gak boleh serakah kawan!", "Poligami", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if ((kandidat == TipeAnggota.Kakek & adakah[TipeAnggota.Kakek] > 0))
+            {
+                MessageBox.Show("Hanya kakek Shohih yang dapat bagian..!! ", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if ((kandidat == TipeAnggota.Nenek & adakah[TipeAnggota.Nenek] > 1))
+            {
+                MessageBox.Show("Hanya Nenek Shohihah yang dapat bagian..!! ", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            return true;
+        }
+
 
     }
 }

@@ -46,9 +46,9 @@ public partial class Form1
 
 	public void DrawPerAnggota(Graphics g)
 	{
-		dynamic idx = Queried + QueriedPage * MaxListPerPage;
-		dynamic a = Helper.anggotas[idx];
-		dynamic b = new SolidBrush(Color.Black);
+		var idx = Queried + QueriedPage * MaxListPerPage;
+		var a = Helper.anggotas[idx];
+		var b = new SolidBrush(Color.Black);
 		int r = 0;
 		Math.DivRem(idx, 2, out r);
 		if (r == 0) {

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Nafza_Faroidh
 {
@@ -18,7 +20,18 @@ namespace Nafza_Faroidh
         /// <summary> Hasil tipe jatah (kategori) </summary>
         public Jatah hasil_jatah;
         /// <summary> Hasil waris jatah (rupiah) </summary>
-        public double hasil_waris;
+        public decimal hasil_waris;
+
+        public string Nama { get { return nama; } set { nama = value; } }
+
+        public string Tipe { get { return Util.Anggota2String[tipe]; } }
+
+        public string HasilJatah { get { return Util.Jatah2String[hasil_jatah]; } }
+
+        public string HasilWaris { get { return "Rp. " + hasil_waris.ToString("##,#0"); } }
+
+        public string HasilWarisPersen { get { return Helper.TotalWaris == 0 ? "-" : (hasil_waris / Helper.TotalWaris).ToString("P2"); } }
+
     }
 
     public enum Jatah
@@ -99,17 +112,68 @@ namespace Nafza_Faroidh
             { TipeAnggota.Bapak, "Bapak" },
             { TipeAnggota.Ibu, "Ibu" },
             { TipeAnggota.Istri, "Istri" },
-            { TipeAnggota.Kakek, "Kakek" },
-            { TipeAnggota.Nenek, "Nenek" },
+            { TipeAnggota.Kakek, "Kakek Shohih" },
+            { TipeAnggota.Nenek, "Nenek Shohihah" },
             { TipeAnggota.Suami, "Suami" },
             { TipeAnggota.Wala, "Wala'" }
         };
 
-        public static V GetValue<K, V>(this Dictionary<K, V> dict, K key, V val)
+
+
+        public static DialogResult ShowInputDialog(ref string input, string title = "Input Box")
         {
-            if (!dict.TryGetValue(key, out V v)) v = val;
-            return v;
+            Size size = new Size(200, 70);
+
+            Form inputBox = new Form()
+            {
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MinimizeBox = false,
+                MaximizeBox = false,
+                ClientSize = size,
+                StartPosition = FormStartPosition.CenterParent,
+                Text = title,
+            };
+
+            TextBox textBox = new TextBox()
+            {
+                Size = new Size(size.Width - 10, 23),
+                Location = new Point(5, 5),
+                Text = input,
+                BorderStyle = BorderStyle.FixedSingle,
+            };
+
+            Button cancelButton = new Button()
+            {
+                DialogResult = DialogResult.Cancel,
+                Name = "cancelButton",
+                Size = new Size(75, 23),
+                Text = "&Cancel",
+                Location = new Point(size.Width - 80, 39),
+            };
+
+            Button okButton = new Button()
+            {
+                DialogResult = DialogResult.OK,
+                Name = "okButton",
+                Size = new Size(75, 23),
+                Text = "&OK",
+                Location = new Point(size.Width - 80 - 80, 39),
+            };
+
+            textBox.SelectAll();
+
+            inputBox.Controls.Add(textBox);
+            inputBox.Controls.Add(okButton);
+            inputBox.Controls.Add(cancelButton);
+            inputBox.AcceptButton = okButton;
+            inputBox.CancelButton = cancelButton;
+
+            DialogResult result = inputBox.ShowDialog();
+            input = textBox.Text;
+            return result;
         }
+
+
     }
 
     public class Dict<K, V> : Dictionary<K, V>
@@ -118,7 +182,8 @@ namespace Nafza_Faroidh
         {
             get
             {
-                if (!TryGetValue(key, out V v)) v = default(V);
+                V v;
+                if (!TryGetValue(key, out v)) v = default(V);
                 return v;
             }
             set
@@ -131,7 +196,8 @@ namespace Nafza_Faroidh
         {
             get
             {
-                if (!TryGetValue(key, out V v)) v = defaultValue;
+                V v;
+                if (!TryGetValue(key, out v)) v = defaultValue;
                 return v;
             }
             set

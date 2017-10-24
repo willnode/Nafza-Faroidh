@@ -1,0 +1,31 @@
+﻿<Window x:Class="Nafza_Faroidh.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nafza_Faroidh"
+        mc:Ignorable="d"
+        Title="About" Height="300" Width="400" ResizeMode="NoResize"  FontSize="15">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="_ctn" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="Wrap" VerticalContentAlignment="Center">
+Alhamdulillah, berkat pertolongan dari Allah SWT
+akhirnya Aplikasi ini dapat terselesaikan.
+Kami mohon sekiranya jika anda sekalian menemukan
+beberapa kesalahan didalamnya 
+untuk segera memberi tahu kepada pengarang.
+Sekian terima kasih. 
+        </TextBox>
+        <TextBlock Grid.Row="2" Margin="5" >
+           Email <Hyperlink NavigateUri="mailto:nafza71@gmail.com">nafza71@gmail.com</Hyperlink>
+       </TextBlock>
+        <TextBlock Grid.Row="3" Margin="5" >
+           Git <Hyperlink NavigateUri="https://github.com/willnode/Nafza-Faroidh">github.com/willnode/Nafza-Faroidh</Hyperlink>
+        </TextBlock>
+    </Grid>
+</Window>

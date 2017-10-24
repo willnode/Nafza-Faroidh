@@ -15,15 +15,15 @@ namespace Nafza_Faroidh
 
         public static Dict<Jatah, int> sumJatah = new Dict<Jatah, int>();
 
-        public static Dict<Jatah, double> unitHasil = new Dict<Jatah, double>();
-        
-        public static double TotalWaris;
+        public static Dict<Jatah, decimal> unitHasil = new Dict<Jatah, decimal>();
+
+        public static decimal TotalWaris;
 
         public static bool ModelAulRodd;
 
-        public static double Hasil_Total;
+        public static decimal Hasil_Total;
 
-        public static double Hasil_Sisa;
+        public static decimal Hasil_Sisa;
 
         /// <summary>
         /// 0 = cukup, 1 = lebih, 2 = kurang dari persediaan waris
@@ -42,7 +42,7 @@ namespace Nafza_Faroidh
             HitungUnitJatah();
             OutputWaris();
         }
-        
+
         public static void LoadAdakah()
         {
             adakah.Clear();
@@ -62,7 +62,7 @@ namespace Nafza_Faroidh
 
         public static void HitungUnitJatah()
         {
-            double sisa = 1;
+            decimal sisa = 1;
             unitHasil.Clear();
             // Hitung untuk bagian asli (pecahan)
             for (int i = 0; i <= 6; i++)
@@ -71,19 +71,19 @@ namespace Nafza_Faroidh
                 if (sumJatah[jatah] > 0)
                 {
                     if ((jatah == Jatah.SatuPerDua))
-                        unitHasil[jatah] = 1.0 / 2.0;
+                        unitHasil[jatah] = 1.0m / 2.0m;
                     if ((jatah == Jatah.SatuPerTiga))
-                        unitHasil[jatah] = 1.0 / 3.0;
+                        unitHasil[jatah] = 1.0m / 3.0m;
                     if ((jatah == Jatah.SatuPerEmpat))
-                        unitHasil[jatah] = 1.0 / 4.0;
+                        unitHasil[jatah] = 1.0m / 4.0m;
                     if ((jatah == Jatah.SatuPerEnam))
-                        unitHasil[jatah] = 1.0 / 6.0;
+                        unitHasil[jatah] = 1.0m / 6.0m;
                     if ((jatah == Jatah.SatuPerDelapan))
-                        unitHasil[jatah] = 1.0 / 8.0;
+                        unitHasil[jatah] = 1.0m / 8.0m;
                     if ((jatah == Jatah.DuaPerTiga))
-                        unitHasil[jatah] = 2.0 / 3.0;
+                        unitHasil[jatah] = 2.0m / 3.0m;
                     if ((jatah == Jatah.ADanSeperenam))
-                        unitHasil[jatah] = 1.0 / 6.0;
+                        unitHasil[jatah] = 1.0m / 6.0m;
 
 
                     sisa -= unitHasil[jatah] * sumJatah[jatah];
@@ -124,7 +124,7 @@ namespace Nafza_Faroidh
                     }
                     else if (jatah == Jatah.A)
                     {
-                        unitHasil[jatah] += sisaReal / S * (2.0);
+                        unitHasil[jatah] += sisaReal / S * (2.0m);
                         // iki lanang
                     }
                     else
@@ -159,7 +159,7 @@ namespace Nafza_Faroidh
         {
             return sumJatah[Jatah.AM] + sumJatah[Jatah.AB] + sumJatah[Jatah.A];
         }
-        public static bool HitungPrioritasZaujah(double jumlah)
+        public static bool HitungPrioritasZaujah(decimal jumlah)
         {
             // Cek jika Rodd ada dan memang ada Suami/Istri
             var suamiIstri = adakah[TipeAnggota.Suami] + adakah[TipeAnggota.Istri];
@@ -198,16 +198,17 @@ namespace Nafza_Faroidh
         public static void OutputWaris()
         {
             // Memori total dari jumlah waris dari tiap anggota
-            var jumlah = 0.0;
+            var jumlah = 0.0m;
             // Di setiap anggotas ..
             foreach (Anggota u in anggotas)
             {
                 u.hasil_waris = TotalWaris * unitHasil[u.hasil_jatah];
-                if (Math.Abs(u.hasil_waris) < 0.01)
+                if (Math.Abs(u.hasil_waris) < 0.0001m)
                     u.hasil_waris = 0;
-                jumlah += Math.Max(u.hasil_waris, 0);
+                jumlah += Math.Max(u.hasil_waris, 0m);
             }
-            var rasio = 1.0;
+
+            var rasio = 1.0m;
 
             if (jumlah == TotalWaris)
             {
@@ -223,15 +224,13 @@ namespace Nafza_Faroidh
                 // Rodd
                 Hasil_Cukup = 2;
             }
-
-            //'If (Hasil_Cukup = 2) Then 
-
+            
             if ((!(jumlah == TotalWaris) & ModelAulRodd))
             {
                 rasio = TotalWaris / jumlah;
                 Hasil_Total = TotalWaris;
                 Hasil_Sisa = 0;
-                if ((Hasil_Cukup == 2 && HitungPrioritasZaujah(jumlah)))
+                if (Hasil_Cukup == 2 && HitungPrioritasZaujah(jumlah))
                 {
                     return;
                 }
@@ -241,10 +240,9 @@ namespace Nafza_Faroidh
                 Hasil_Total = jumlah;
                 Hasil_Sisa = TotalWaris - jumlah;
             }
-            if (Math.Abs(Hasil_Sisa) < 0.01)
-                Hasil_Sisa = 0;
-            if (Math.Abs(Hasil_Total) < 0.01)
-                Hasil_Total = 0;
+
+            if (Math.Abs(Hasil_Sisa) < 0.0001m) Hasil_Sisa = 0;
+            if (Math.Abs(Hasil_Total) < 0.0001m) Hasil_Total = 0;
 
             if (!(rasio == 1))
             {
